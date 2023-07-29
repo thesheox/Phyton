@@ -264,15 +264,46 @@ for i in range(len(result)):
     nahayi=nahayi*result[i]
 print(nahayi)
 
-'''''
+
 number = input("enter a number")
-digit_to_count = "1"
+number = number.split()
+digit_to_count=input("count what number?")
+for i in range(len(number)):
+    number_str = str(number[i])
+    count_ones = number_str.count(digit_to_count)
+    print(count_ones,end=" ")
+
+number = input("enter a number")
+number = number.split()
+unique_numbers_list = list(set(number))
+for i in range(len(unique_numbers_list)):
+    print(str(unique_numbers_list[i])+" "+str(number.count(unique_numbers_list[i])),end=" ")
+
+from sympy import isprime
+tedad=int(input())
+start=1
+nums=[]
+for k in range(0,tedad):
+    x=int(input())
+    nums.append(x)
 
 
-number_str = str(number)
 
-
-count_ones = number_str.count(digit_to_count)
-
-
-print(count_ones)
+for j in range(len(nums)):
+    prime_nums = []
+    for i in range(1, nums[j] + 1):
+        if isprime(i) and i % 2 != 0 and nums[j] % i == 0:
+            prime_nums.append(i)
+    if prime_nums:
+        print(min(prime_nums))
+    else:
+        print("not exist")
+        
+        
+number = "012345123690"
+num_list = []
+'''''
+for i in range(len(number)):
+    for j in range(len(number)):
+        substring = number[i:j + 1]
+        num_list.append(substring)
